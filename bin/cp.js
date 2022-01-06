@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-cp('bin/vercel.json', 'dist/vercel.json')
-cp('bin/package.json', 'dist/package.json')
+// cp('bin/vercel.json', 'dist/vercel.json')
+// cp('bin/package.json', 'dist/package.json')
 
 function cp(frome, to) {
 	fs.readFile(frome, function (err, data) {
