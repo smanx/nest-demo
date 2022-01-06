@@ -26,4 +26,4 @@ jobs:
       with:
         ssh-key: ${{ secrets.AUTHINE_KEY }}
         branch: dist # The branch the action should deploy to.
-        folder: ./ 
+        folder: ./
