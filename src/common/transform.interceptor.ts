@@ -4,10 +4,11 @@ import {
     ExecutionContext,
     BadGatewayException,
     CallHandler,
-  } from '@nestjs/common';
+} from '@nestjs/common';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators'
+import { ModelLogAdd } from 'src/model/model.log';
 
 
 export interface Response<T> {
@@ -22,6 +23,7 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
         ).pipe(map(data => {
             let [req, res, next] = context['args']
             console.log('TransformInterceptor', req.originalUrl)
+            ModelLogAdd({ age: new Date().getTime(), other: { data: typeof data == 'string' ? data : JSON.stringify(data) } })
             return data
         }));
     }

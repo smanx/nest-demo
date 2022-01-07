@@ -7,9 +7,10 @@ export class CreateBbkDto {
   readonly age: number;
   readonly breed: string;
   readonly limit: number;
-
+  readonly type: number;
+  readonly creatAt: Date;
   constructor(){
-    this.age = Math.random()
+    this.creatAt = new Date()
   }
 }
 

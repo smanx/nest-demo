@@ -1,5 +1,6 @@
 import { Controller, Get, Param, Request, UseInterceptors } from '@nestjs/common';
 import { AppService } from './app.service';
+import Store from './common/store';
 
 @Controller()
 export class AppController {
@@ -13,6 +14,11 @@ export class AppController {
   @Get('log')
   getHello3(): string {
     return 'getHello3';
+  }
+
+  @Get('store')
+  getStore(): object {
+    return Store.state;
   }
 
   // @Get(':id')

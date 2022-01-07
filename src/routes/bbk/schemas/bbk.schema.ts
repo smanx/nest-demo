@@ -16,16 +16,9 @@ export class Bbk extends Document {
 
   @Prop()
   limit: number;
+
+  @Prop()
+  date: Date;
 }
 
 export const BbkSchema = SchemaFactory.createForClass(Bbk);
-
-
-import * as mongoose from 'mongoose';
-
-export const BbkSchema2 = new mongoose.Schema({
-  name: String,
-  age: Number,
-  breed: String,
-  limit: Number,
-});
