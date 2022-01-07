@@ -6,18 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppService = void 0;
+exports.BbksModule = void 0;
 const common_1 = require("@nestjs/common");
-let AppService = class AppService {
-    getHello() {
-        return 'Hello World!';
-    }
-    getHello2() {
-        return 'Hello World! 222';
-    }
+const mongoose_1 = require("@nestjs/mongoose");
+const bbks_controller_1 = require("./bbks.controller");
+const bbks_service_1 = require("./bbks.service");
+const bbk_schema_1 = require("./schemas/bbk.schema");
+let BbksModule = class BbksModule {
 };
-AppService = __decorate([
-    (0, common_1.Injectable)()
-], AppService);
-exports.AppService = AppService;
-//# sourceMappingURL=app.service.js.map
+BbksModule = __decorate([
+    (0, common_1.Module)({
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: bbk_schema_1.Bbk.name, schema: bbk_schema_1.BbkSchema }])],
+        controllers: [bbks_controller_1.BbksController],
+        providers: [bbks_service_1.BbksService],
+    })
+], BbksModule);
+exports.BbksModule = BbksModule;
+//# sourceMappingURL=bbks.module.js.map
