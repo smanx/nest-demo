@@ -1,12 +1,10 @@
 import { NestFactory } from '@nestjs/core';
+import { TransformInterceptor } from 'src/common/transform.interceptor';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.use(function (req, res, next) {
-    // console.log('==============>', arguments)
-    next()
-  })
+  app.useGlobalInterceptors(new TransformInterceptor());
   await app.listen(3000);
 }
 bootstrap();
