@@ -26,19 +26,4 @@ export class BbksController {
         let res: Bbk = await this.bbksService.createAny()
         return res;
     }
-
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-        return `This action returns a #${id} bbk`;
-    }
-
-    @Put(':id')
-    update(@Param('id') id: string, @Body() updateBbkDto: UpdateBbkDto) {
-        return `This action updates a #${id} bbk`;
-    }
-
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-        return `This action removes a #${id} bbk`;
-    }
 }
