@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './routes/cats/cats.module';
 import { BbksModule } from './routes/bbk/bbks.module';
+import Store from './common/store';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://zc:cc@cluster0.ou5mi.mongodb.net/nest?retryWrites=true&w=majority'),
+    MongooseModule.forRoot(Store.state.config.mongoose.url),
     CatsModule,
     BbksModule
   ],

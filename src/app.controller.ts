@@ -1,10 +1,12 @@
-import { Controller, Get, Param, Request, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, Param, Request, UseInterceptors, Query, Body } from '@nestjs/common';
+
 import { AppService } from './app.service';
 import Store from './common/store';
+import { ModelLog } from './model/model.log';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
   getHello(): string {
@@ -12,13 +14,29 @@ export class AppController {
   }
 
   @Get('log')
-  getHello3(): string {
-    return 'getHello3';
+  async logloglog(@Query() query): Promise<Object> {
+    let list = await ModelLog.find().
+      limit(query.limit || 10).
+      sort({ creatAt: -1 }).
+      exec();
+    return list.map(item=>{
+      try {
+        item.resObj = JSON.parse(item.resText)
+        item.resText = 'resObj'
+      } catch (error) { }
+
+      return item
+    });
   }
 
   @Get('store')
   getStore(): object {
     return Store.state;
+  }
+
+  @Post('dysp')
+  dysp(@Query() query, @Body() body, @Param() param,): object {
+    return { a: 1 };
   }
 
   // @Get(':id')

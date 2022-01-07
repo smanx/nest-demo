@@ -22,8 +22,7 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
             catchError(err => throwError(new BadGatewayException())),
         ).pipe(map(data => {
             let [req, res, next] = context['args']
-            console.log('TransformInterceptor', req.originalUrl)
-            ModelLogAdd({ age: new Date().getTime(), other: { data: typeof data == 'string' ? data : JSON.stringify(data) } })
+            ModelLogAdd(data, req, res)
             return data
         }));
     }
