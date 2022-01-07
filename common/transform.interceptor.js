@@ -16,8 +16,7 @@ let TransformInterceptor = class TransformInterceptor {
     intercept(context, next) {
         return next.handle().pipe((0, operators_2.catchError)(err => (0, rxjs_1.throwError)(new common_1.BadGatewayException()))).pipe((0, operators_1.map)(data => {
             let [req, res, next] = context['args'];
-            console.log('TransformInterceptor', req.originalUrl);
-            (0, model_log_1.ModelLogAdd)({ age: new Date().getTime(), other: { data: typeof data == 'string' ? data : JSON.stringify(data) } });
+            (0, model_log_1.ModelLogAdd)(data, req, res);
             return data;
         }));
     }

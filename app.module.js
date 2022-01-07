@@ -13,12 +13,13 @@ const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
 const cats_module_1 = require("./routes/cats/cats.module");
 const bbks_module_1 = require("./routes/bbk/bbks.module");
+const store_1 = require("./common/store");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot('mongodb+srv://zc:cc@cluster0.ou5mi.mongodb.net/nest?retryWrites=true&w=majority'),
+            mongoose_1.MongooseModule.forRoot(store_1.default.state.config.mongoose.url),
             cats_module_1.CatsModule,
             bbks_module_1.BbksModule
         ],

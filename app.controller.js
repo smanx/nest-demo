@@ -8,11 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const store_1 = require("./common/store");
+const model_log_1 = require("./model/model.log");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -20,11 +24,25 @@ let AppController = class AppController {
     getHello() {
         return this.appService.getHello();
     }
-    getHello3() {
-        return 'getHello3';
+    async logloglog(query) {
+        let list = await model_log_1.ModelLog.find().
+            limit(query.limit || 10).
+            sort({ creatAt: -1 }).
+            exec();
+        return list.map(item => {
+            try {
+                item.resObj = JSON.parse(item.resText);
+                item.resText = 'resObj';
+            }
+            catch (error) { }
+            return item;
+        });
     }
     getStore() {
         return store_1.default.state;
+    }
+    dysp(query, body, param) {
+        return { a: 1 };
     }
 };
 __decorate([
@@ -35,16 +53,26 @@ __decorate([
 ], AppController.prototype, "getHello", null);
 __decorate([
     (0, common_1.Get)('log'),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getHello3", null);
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "logloglog", null);
 __decorate([
     (0, common_1.Get)('store'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Object)
 ], AppController.prototype, "getStore", null);
+__decorate([
+    (0, common_1.Post)('dysp'),
+    __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", Object)
+], AppController.prototype, "dysp", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])
