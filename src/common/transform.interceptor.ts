@@ -9,6 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { catchError } from 'rxjs/operators'
 import { ModelLogAdd } from 'src/model/model.log';
+import Store from './store';
 
 
 export interface Response<T> {
@@ -23,6 +24,8 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
         ).pipe(map(data => {
             let [req, res, next] = context['args']
             ModelLogAdd(data, req, res)
+            let id = `id_${new Date().getTime()}_${parseInt((Math.random() * 10000).toString())}`
+            Store.LOG.addRes({ data, req, res, id })
             return data
         }));
     }

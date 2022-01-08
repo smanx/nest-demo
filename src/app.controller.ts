@@ -19,7 +19,7 @@ export class AppController {
       limit(query.limit || 10).
       sort({ creatAt: -1 }).
       exec();
-    return list.map(item=>{
+    return list.map(item => {
       try {
         item.resObj = JSON.parse(item.resText)
         item.resText = 'resObj'
@@ -27,6 +27,13 @@ export class AppController {
 
       return item
     });
+  }
+
+  @Get('log2')
+  log2(@Query() query): object {
+    let reqs = Store.LOG.reqs.slice(0, query.limit || 10)
+    console.log('reqs', reqs)
+    return [...reqs]
   }
 
   @Get('store')
