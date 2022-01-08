@@ -38,6 +38,11 @@ let AppController = class AppController {
             return item;
         });
     }
+    log2(query) {
+        let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
+        console.log('reqs', reqs);
+        return [...reqs];
+    }
     getStore() {
         return store_1.default.state;
     }
@@ -58,6 +63,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "logloglog", null);
+__decorate([
+    (0, common_1.Get)('log2'),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Object)
+], AppController.prototype, "log2", null);
 __decorate([
     (0, common_1.Get)('store'),
     __metadata("design:type", Function),
