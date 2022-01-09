@@ -1,7 +1,7 @@
 import Store from "src/common/store";
 const mongoose = require('mongoose');
 mongoose.connect(Store.state.config.mongoose.url)
-
+import { Injectable, Logger } from '@nestjs/common';
 
 
 export const log = {
@@ -31,5 +31,7 @@ export function ModelLogAdd(data, req, res) {
         resText,
         creatAt: new Date(),
         other: {}
-    }).save();
+    }).save().then(res => {
+        Logger.log('ModelLog save', res)
+    });
 }
