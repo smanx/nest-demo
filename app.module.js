@@ -14,14 +14,25 @@ const mongoose_1 = require("@nestjs/mongoose");
 const cats_module_1 = require("./routes/cats/cats.module");
 const bbks_module_1 = require("./routes/bbk/bbks.module");
 const store_1 = require("./common/store");
+const request = require('request');
+const schedule_1 = require("@nestjs/schedule");
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer
+            .apply(function logger(req, res, next) {
+            var url = req.query.url || 'http://localhost:3000';
+            req.pipe(request(url)).pipe(res);
+        })
+            .forRoutes('proxy');
+    }
 };
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forRoot(store_1.default.state.config.mongoose.url),
             cats_module_1.CatsModule,
-            bbks_module_1.BbksModule
+            bbks_module_1.BbksModule,
+            schedule_1.ScheduleModule.forRoot()
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
