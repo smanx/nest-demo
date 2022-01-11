@@ -18,7 +18,7 @@ export class AppService {
 }
 
 
-requestrequest()
+// requestrequest()
 function requestrequest() {
   let url = 'https://nest-demo-two.vercel.app/log2?limit=1'
   // let url = 'http://localhost:3000/log2?limit=1'
