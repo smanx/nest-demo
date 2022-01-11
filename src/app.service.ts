@@ -11,10 +11,10 @@ export class AppService {
   getHello2(): string {
     return 'Hello World! 222';
   }
-  @Cron('0 * * * * *')
-  handleCron() {
-    requestrequest()
-  }
+  // @Cron('0 * * * * *')
+  // handleCron() {
+  //   requestrequest()
+  // }
 }
 
 
