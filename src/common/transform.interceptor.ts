@@ -23,7 +23,7 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
             catchError(err => throwError(new BadGatewayException())),
         ).pipe(map(data => {
             let [req, res, next] = context['args']
-            ModelLogAdd(data, req, res)
+            // ModelLogAdd(data, req, res)
             let id = `id_${new Date().getTime()}_${parseInt((Math.random() * 10000).toString())}`
             Store.LOG.addRes({ data, req, res, id })
             return data
