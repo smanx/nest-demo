@@ -8,36 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CatsService = void 0;
-const mongoose_1 = require("mongoose");
 const common_1 = require("@nestjs/common");
-const mongoose_2 = require("@nestjs/mongoose");
-const cat_dto_1 = require("./dto/cat.dto");
 let CatsService = class CatsService {
-    constructor(catModel) {
-        this.catModel = catModel;
-    }
-    async create(createCatDto) {
-        const createdCat = new this.catModel(createCatDto);
-        return createdCat.save();
-    }
-    async findAll() {
-        return this.catModel.find().exec();
-    }
-    async createAny() {
-        let createCatDto = new cat_dto_1.CreateCatDto();
-        const createdCat = new this.catModel(createCatDto);
-        return createdCat.save();
-    }
+    constructor() { }
 };
 CatsService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_2.InjectModel)('Cat')),
-    __metadata("design:paramtypes", [mongoose_1.Model])
+    __metadata("design:paramtypes", [])
 ], CatsService);
 exports.CatsService = CatsService;
 //# sourceMappingURL=cats.service.js.map

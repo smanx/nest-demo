@@ -27,8 +27,7 @@ let CatsController = class CatsController {
         return `This action returns all cats (limit: ${query.limit} items)`;
     }
     async creatAny(query) {
-        let res = await this.catsService.createAny();
-        return res;
+        return [];
     }
     findOne(id) {
         return `This action returns a #${id} cat`;

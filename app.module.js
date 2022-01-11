@@ -10,12 +10,10 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const mongoose_1 = require("@nestjs/mongoose");
 const cats_module_1 = require("./routes/cats/cats.module");
-const bbks_module_1 = require("./routes/bbk/bbks.module");
-const store_1 = require("./common/store");
 const request = require('request');
 const schedule_1 = require("@nestjs/schedule");
+const bbks_module_1 = require("./routes/bbk/bbks.module");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -29,7 +27,6 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            mongoose_1.MongooseModule.forRoot(store_1.default.state.config.mongoose.url),
             cats_module_1.CatsModule,
             bbks_module_1.BbksModule,
             schedule_1.ScheduleModule.forRoot()
