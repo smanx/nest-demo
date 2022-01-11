@@ -24,6 +24,6 @@ function requestrequest() {
   // let url = 'http://localhost:3000/log2?limit=1'
   request(url, function (error, response, data) {
     Logger.log(data)
-    requestrequest()
+    // requestrequest()
   });
 }
