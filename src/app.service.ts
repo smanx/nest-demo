@@ -11,7 +11,7 @@ export class AppService {
   getHello2(): string {
     return 'Hello World! 222';
   }
-  @Cron('* * * * * *')
+  @Cron('0 * * * * *')
   handleCron() {
     requestrequest()
   }
