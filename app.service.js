@@ -38,7 +38,6 @@ AppService = AppService_1 = __decorate([
     (0, common_1.Injectable)()
 ], AppService);
 exports.AppService = AppService;
-requestrequest();
 function requestrequest() {
     let url = 'https://nest-demo-two.vercel.app/log2?limit=1';
     request(url, function (error, response, data) {
