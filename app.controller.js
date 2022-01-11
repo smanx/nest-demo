@@ -16,27 +16,12 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const store_1 = require("./common/store");
-const model_log_1 = require("./model/model.log");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
     getHello() {
         return this.appService.getHello();
-    }
-    async logloglog(query) {
-        let list = await model_log_1.ModelLog.find().
-            limit(query.limit || 10).
-            sort({ creatAt: -1 }).
-            exec();
-        return list.map(item => {
-            try {
-                item.resObj = JSON.parse(item.resText);
-                item.resText = 'resObj';
-            }
-            catch (error) { }
-            return item;
-        });
     }
     log2(query) {
         let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
@@ -56,13 +41,6 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
-__decorate([
-    (0, common_1.Get)('log'),
-    __param(0, (0, common_1.Query)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], AppController.prototype, "logloglog", null);
 __decorate([
     (0, common_1.Get)('log2'),
     __param(0, (0, common_1.Query)()),
