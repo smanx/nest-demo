@@ -42,7 +42,6 @@ function requestrequest() {
     let url = 'https://nest-demo-two.vercel.app/log2?limit=1';
     request(url, function (error, response, data) {
         common_1.Logger.log(data);
-        requestrequest();
     });
 }
 //# sourceMappingURL=app.service.js.map
