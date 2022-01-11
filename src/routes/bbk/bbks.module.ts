@@ -5,7 +5,7 @@ import { BbksService } from './bbks.service';
 import { Bbk, BbkSchema } from './schemas/bbk.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Bbk.name, schema: BbkSchema }])],
+  // imports: [MongooseModule.forFeature([{ name: Bbk.name, schema: BbkSchema }])],
   controllers: [BbksController],
   providers: [BbksService],
 })

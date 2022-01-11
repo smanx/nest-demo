@@ -23,8 +23,7 @@ export class CatsController {
 
     @Get('creatAny')
     async creatAny(@Query() query: ListAllEntities) {
-        let res: Cat = await this.catsService.createAny()
-        return res;
+        return [];
     }
 
     @Get(':id')

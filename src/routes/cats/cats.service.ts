@@ -6,20 +6,5 @@ import { CreateCatDto } from './dto/cat.dto';
 
 @Injectable()
 export class CatsService {
-  constructor(@InjectModel('Cat') private catModel: Model<CatDocument>) {}
-
-  async create(createCatDto: CreateCatDto): Promise<Cat> {
-    const createdCat = new this.catModel(createCatDto);
-    return createdCat.save();
-  }
-
-  async findAll(): Promise<Cat[]> {
-    return this.catModel.find().exec();
-  }
-
-  async createAny(): Promise<Cat> {
-    let createCatDto = new CreateCatDto()
-    const createdCat = new this.catModel(createCatDto);
-    return createdCat.save();
-  }
+  constructor() {}
 }
