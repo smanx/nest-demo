@@ -31,6 +31,14 @@ let AppController = class AppController {
         let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
         return [...reqs];
     }
+    logsize(query) {
+        return {
+            length: store_1.default.LOG.reqs.length,
+            size: store_1.default.LOG.size,
+            reqMax: store_1.default.LOG.reqMax,
+            reqCont: store_1.default.LOG.reqCont
+        };
+    }
     getStore() {
         return store_1.default;
     }
@@ -58,6 +66,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Object)
 ], AppController.prototype, "log2", null);
+__decorate([
+    (0, common_1.Get)('logsize'),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Object)
+], AppController.prototype, "logsize", null);
 __decorate([
     (0, common_1.Get)('store'),
     __metadata("design:type", Function),

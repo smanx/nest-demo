@@ -5,6 +5,7 @@ export declare class AppController {
     getHello(): string;
     logloglog(query: any): object;
     log2(query: any): object;
+    logsize(query: any): object;
     getStore(): object;
     dysp(query: any, body: any, param: any): object;
 }
