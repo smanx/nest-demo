@@ -22,7 +22,7 @@ Store.LOG = {
             obj[key] = req[key];
             return obj;
         }, {});
-        this.reqs.splice(0, this.reqs.length >= this.reqMax ? 1 : 0, { req: reqNew, id });
+        this.reqs.splice(0, this.reqs.length >= this.reqMax ? 1 : 0, { req: reqNew, id, time: new Date().toLocaleString() });
     },
     addRes: function ({ req, res, id, data }) {
         let req2 = this.reqs.find(req2 => req2.id == id);

@@ -36,7 +36,8 @@ let AppController = class AppController {
             length: store_1.default.LOG.reqs.length,
             size: store_1.default.LOG.size,
             reqMax: store_1.default.LOG.reqMax,
-            reqCont: store_1.default.LOG.reqCont
+            reqCont: store_1.default.LOG.reqCont,
+            time: store_1.default.LOG.reqs[0] && store_1.default.LOG.reqs[0].time
         };
     }
     getStore() {
