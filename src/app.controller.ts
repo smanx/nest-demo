@@ -14,8 +14,10 @@ export class AppController {
   }
 
   @Get('log')
-  async logloglog(@Query() query): Promise<Object> {
-    return Store.LOG;
+  logloglog(@Query() query): object {
+    let reqs = Store.LOG.reqs
+    // console.log('reqs', reqs)
+    return [...reqs]
   }
 
   @Get('log2')
