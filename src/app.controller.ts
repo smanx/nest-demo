@@ -13,21 +13,10 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  // @Get('log')
-  // async logloglog(@Query() query): Promise<Object> {
-  //   let list = await ModelLog.find().
-  //     limit(query.limit || 10).
-  //     sort({ creatAt: -1 }).
-  //     exec();
-  //   return list.map(item => {
-  //     try {
-  //       item.resObj = JSON.parse(item.resText)
-  //       item.resText = 'resObj'
-  //     } catch (error) { }
-
-  //     return item
-  //   });
-  // }
+  @Get('log')
+  async logloglog(@Query() query): Promise<Object> {
+    return Store.LOG;
+  }
 
   @Get('log2')
   log2(@Query() query): object {
@@ -38,7 +27,7 @@ export class AppController {
 
   @Get('store')
   getStore(): object {
-    return Store.state;
+    return Store;
   }
 
   @Post('dysp')
