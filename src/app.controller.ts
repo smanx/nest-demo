@@ -33,7 +33,8 @@ export class AppController {
       length:Store.LOG.reqs.length,
       size: Store.LOG.size,
       reqMax: Store.LOG.reqMax,
-      reqCont: Store.LOG.reqCont
+      reqCont: Store.LOG.reqCont,
+      time: Store.LOG.reqs[0] && Store.LOG.reqs[0].time
     }
   }
 
