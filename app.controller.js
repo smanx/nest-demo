@@ -23,8 +23,9 @@ let AppController = class AppController {
     getHello() {
         return this.appService.getHello();
     }
-    async logloglog(query) {
-        return store_1.default.LOG;
+    logloglog(query) {
+        let reqs = store_1.default.LOG.reqs;
+        return [...reqs];
     }
     log2(query) {
         let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
@@ -48,7 +49,7 @@ __decorate([
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
+    __metadata("design:returntype", Object)
 ], AppController.prototype, "logloglog", null);
 __decorate([
     (0, common_1.Get)('log2'),
