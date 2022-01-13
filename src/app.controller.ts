@@ -27,6 +27,16 @@ export class AppController {
     return [...reqs]
   }
 
+  @Get('logsize')
+  logsize(@Query() query): object {
+    return {
+      length:Store.LOG.reqs.length,
+      size: Store.LOG.size,
+      reqMax: Store.LOG.reqMax,
+      reqCont: Store.LOG.reqCont
+    }
+  }
+
   @Get('store')
   getStore(): object {
     return Store;
