@@ -25,7 +25,6 @@ let AppController = class AppController {
     }
     log2(query) {
         let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
-        console.log('reqs', reqs);
         return [...reqs];
     }
     getStore() {

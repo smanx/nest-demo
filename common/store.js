@@ -26,7 +26,7 @@ Store.LOG = {
     },
     addRes: function ({ req, res, id, data }) {
         let req2 = this.reqs.find(req2 => req2.id == id);
-        console.log('addRes===>', data.length);
+        console.log('addRes===>', this.reqs.length, data.length);
         let length = (typeof data == 'string' ? data : JSON.stringify(data)).length;
         if (length > this.size) {
             data = 'length=' + length + '>' + this.size;
