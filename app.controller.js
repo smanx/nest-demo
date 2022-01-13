@@ -23,12 +23,15 @@ let AppController = class AppController {
     getHello() {
         return this.appService.getHello();
     }
+    async logloglog(query) {
+        return store_1.default.LOG;
+    }
     log2(query) {
         let reqs = store_1.default.LOG.reqs.slice(0, query.limit || 10);
         return [...reqs];
     }
     getStore() {
-        return store_1.default.state;
+        return store_1.default;
     }
     dysp(query, body, param) {
         return { a: 1 };
@@ -40,6 +43,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
+__decorate([
+    (0, common_1.Get)('log'),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "logloglog", null);
 __decorate([
     (0, common_1.Get)('log2'),
     __param(0, (0, common_1.Query)()),
