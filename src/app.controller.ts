@@ -34,7 +34,9 @@ export class AppController {
       size: Store.LOG.size,
       reqMax: Store.LOG.reqMax,
       reqCont: Store.LOG.reqCont,
-      time: Store.LOG.reqs[0] && Store.LOG.reqs[0].time
+      lastTime: Store.LOG.reqs[0] && Store.LOG.reqs[0].time,
+      startTime: Store.LOG.startTime,
+      time: new Date(new Date().getTime() - Store.LOG.startTime.getTime())
     }
   }
 
