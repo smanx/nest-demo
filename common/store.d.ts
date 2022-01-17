@@ -11,6 +11,7 @@ declare class Store {
         size: number;
         reqCont: number;
         reqs: any[];
+        startTime: Date;
         addReq: ({ req, res, id }: {
             req: any;
             res: any;

@@ -16,6 +16,7 @@ Store.LOG = {
     size: 1024 * 1024,
     reqCont: 0,
     reqs: [],
+    startTime: new Date(),
     addReq: function ({ req, res, id }) {
         this.reqCont++;
         let reqNew = ['hostname', 'headers', 'ip', 'ips', 'query', 'originalUrl'].reduce((obj, key) => {

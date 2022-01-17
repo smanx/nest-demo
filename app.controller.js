@@ -37,7 +37,9 @@ let AppController = class AppController {
             size: store_1.default.LOG.size,
             reqMax: store_1.default.LOG.reqMax,
             reqCont: store_1.default.LOG.reqCont,
-            time: store_1.default.LOG.reqs[0] && store_1.default.LOG.reqs[0].time
+            lastTime: store_1.default.LOG.reqs[0] && store_1.default.LOG.reqs[0].time,
+            startTime: store_1.default.LOG.startTime,
+            time: new Date(new Date().getTime() - store_1.default.LOG.startTime.getTime())
         };
     }
     getStore() {
