@@ -40,9 +40,14 @@ export class AppController {
     }
   }
 
-  @Get('store')
-  getStore(): object {
-    return Store;
+  // @Get('store')
+  // getStore(): object {
+  //   return Store;
+  // }
+
+  @Get('state')
+  getState(): object {
+    return Store.state;
   }
 
   @Post('dysp')

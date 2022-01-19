@@ -7,9 +7,11 @@ class Store {
     public static state = {
         config: {
             mongoose: {
-                url: 'mongodb+srv://zc:cc@cluster0.ou5mi.mongodb.net/nest?retryWrites=true&w=majority'
+                url: '',
+                // url: 'mongodb+srv://zc:cc@cluster0.ou5mi.mongodb.net/nest?retryWrites=true&w=majority'
             }
-        }
+        },
+        words: []
     }
 
     public static LOG = {

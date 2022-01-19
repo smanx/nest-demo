@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
+import Store from './common/store';
 const request = require('request')
 
 @Injectable()
@@ -11,10 +12,10 @@ export class AppService {
   getHello2(): string {
     return 'Hello World! 222';
   }
-  // @Cron('0 * * * * *')
-  // handleCron() {
-  //   requestrequest()
-  // }
+  @Cron('* * * * * *')
+  handleCron() {
+     Store.state.words.splice(0, Store.state.words.length >= 10000 ? 1 : 0, new Date().toLocaleString())
+  }
 }
 
 
