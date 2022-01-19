@@ -5,6 +5,7 @@ declare class Store {
                 url: string;
             };
         };
+        words: any[];
     };
     static LOG: {
         reqMax: number;

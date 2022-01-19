@@ -42,8 +42,8 @@ let AppController = class AppController {
             time: new Date(new Date().getTime() - store_1.default.LOG.startTime.getTime())
         };
     }
-    getStore() {
-        return store_1.default;
+    getState() {
+        return store_1.default.state;
     }
     dysp(query, body, param) {
         return { a: 1 };
@@ -77,11 +77,11 @@ __decorate([
     __metadata("design:returntype", Object)
 ], AppController.prototype, "logsize", null);
 __decorate([
-    (0, common_1.Get)('store'),
+    (0, common_1.Get)('state'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Object)
-], AppController.prototype, "getStore", null);
+], AppController.prototype, "getState", null);
 __decorate([
     (0, common_1.Post)('dysp'),
     __param(0, (0, common_1.Query)()),

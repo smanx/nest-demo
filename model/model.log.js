@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModelLogAdd = exports.ModelLog = exports.log = void 0;
 const store_1 = require("../common/store");
 const mongoose = require('mongoose');
-mongoose.connect(store_1.default.state.config.mongoose.url);
 const common_1 = require("@nestjs/common");
 exports.log = {
     name: String,
@@ -18,6 +17,7 @@ exports.log = {
 const logKeys = Object.keys(exports.log);
 exports.ModelLog = mongoose.model('Log', exports.log);
 function ModelLogAdd(data, req, res) {
+    mongoose.connect(store_1.default.state.config.mongoose.url);
     let resText = typeof data == 'string' ? data : JSON.stringify(data);
     if (resText.length > 100 * 1024) {
         resText = 'resText.length=' + resText.length;

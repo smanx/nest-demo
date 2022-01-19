@@ -7,9 +7,10 @@ class Store {
 Store.state = {
     config: {
         mongoose: {
-            url: 'mongodb+srv://zc:cc@cluster0.ou5mi.mongodb.net/nest?retryWrites=true&w=majority'
+            url: '',
         }
-    }
+    },
+    words: []
 };
 Store.LOG = {
     reqMax: 10000,
